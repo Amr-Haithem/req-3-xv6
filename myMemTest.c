@@ -6,7 +6,7 @@
  //#define PGSIZE 4096
 //#include <fileapi.h>
 #define DEBUG 1
-#define x 2*4096
+#define x 3*4096
 
 
 
@@ -34,7 +34,7 @@ main(int argc, char *argv[]){
 		arr[i] = sbrk(PGSIZE)-x;
 		printf(1, "arr[%d]=0x%x\n", i, arr[i]);
 	}
-	printf(1, "Called sbrk(PGSIZE)-x 12 times - all physical pages taken.\nPress any key...\n");
+	printf(1, "Called sbrk(PGSIZE) 12 times - all physical pages taken.\nPress any key...\n");
 	gets(input, 10);
 
 	/*
@@ -45,7 +45,7 @@ main(int argc, char *argv[]){
 	*/
 	arr[12] = sbrk(PGSIZE)-x;
 	printf(1, "arr[12]=0x%x\n", arr[12]);
-	printf(1, "Called sbrk(PGSIZE)-x for the 13th time, a page fault should occur and one page in swap file.\nPress any key...\n");
+	printf(1, "Called sbrk(PGSIZE)for the 13th time, a page fault should occur and one page in swap file.\nPress any key...\n");
 	gets(input, 10);
 
 	/*
@@ -56,7 +56,7 @@ main(int argc, char *argv[]){
 	*/
 	arr[13] = sbrk(PGSIZE)-x;
 	printf(1, "arr[13]=0x%x\n", arr[13]);
-	printf(1, "Called sbrk(PGSIZE)-x for the 14th time, a page fault should occur and two pages in swap file.\nPress any key...\n");
+	printf(1, "Called sbrk(PGSIZE) for the 14th time, a page fault should occur and two pages in swap file.\nPress any key...\n");
 	gets(input, 10);
 
 #endif
